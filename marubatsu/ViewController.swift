@@ -19,7 +19,7 @@ class ViewController: UIViewController {
 
     @IBAction func action(_ sender: Any) {
         
-        if state[(sender as AnyObject).tag - 1] == 0{
+        if state[(sender as AnyObject).tag - 1] == 0 && gameActive == true {
             state[(sender as AnyObject).tag - 1] = activePlayer
         
             if activePlayer == 1 {
@@ -38,13 +38,33 @@ class ViewController: UIViewController {
                 gameActive = false
                 
                 if state[condition[0]] == 1{
+                    winnerLabel.text = "マルの勝ち"
                     
                 } else {
-                    
+                    winnerLabel.text = "バツの勝ち"
                 }
+                winnerLabel.isHidden = false
+                restart.isHidden = false
                 
             }
         }
+    }
+    
+    @IBOutlet weak var winnerLabel: UILabel!
+    @IBOutlet weak var restart: UIButton!
+    @IBAction func restartButton(_ sender: Any) {
+        state = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        gameActive = true
+        activePlayer = 1
+        winnerLabel.isHidden = true
+        restart.isHidden = true
+        
+        for i in 1...9{
+            let button = view.viewWithTag(i) as! UIButton
+            button.setImage(nil, for: UIControlState())
+        }
+        
+        
     }
     
     override func viewDidLoad() {
