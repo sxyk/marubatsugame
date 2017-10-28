@@ -19,7 +19,7 @@
                     </layoutGuides>
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="uhl-iX-uNg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuK-iO-Fuc">
                                 <rect key="frame" x="13" y="143" width="90" height="90"/>
@@ -122,7 +122,7 @@
                                 <rect key="frame" x="123" y="40" width="75" height="30"/>
                                 <state key="normal" title="もう1回!!"/>
                                 <connections>
-                                    <action selector="restartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8vU-De-KNY"/>
+                                    <action selector="restart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Ng-mw-U5C"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -136,8 +136,8 @@
                         <variation key="heightClass=regular-widthClass=compact" layoutMarginsFollowReadableWidth="NO"/>
                     </view>
                     <connections>
-                        <outlet property="restart" destination="cY4-xO-hid" id="qQo-fw-fcH"/>
-                        <outlet property="winnerLabel" destination="2CU-hm-aty" id="TVp-Qx-MJD"/>
+                        <outlet property="restart" destination="cY4-xO-hid" id="155-Pn-T49"/>
+                        <outlet property="winnerLabel" destination="2CU-hm-aty" id="dhe-qQ-5y3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

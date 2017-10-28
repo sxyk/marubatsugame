@@ -12,11 +12,23 @@ class ViewController: UIViewController {
     
     var activePlayer = 1
     var state = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-    
-    let winningconditon = [[0, 1, 2,], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 7], [2, 4, 6]]
-    
+    let winningconditon = [[0, 1, 2,], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
     var gameActive = true
-
+    
+    @IBOutlet weak var restart: UIButton!
+    @IBAction func restart(_ sender: Any) {
+        state = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        gameActive = true
+        activePlayer = 1
+        winnerLabel.isHidden = true
+        restart.isHidden = true
+        
+        for i in 1...9{
+            let button = view.viewWithTag(i) as! UIButton
+            button.setImage(nil, for: UIControlState())
+        }
+    }
+    @IBOutlet weak var winnerLabel: UILabel!
     @IBAction func action(_ sender: Any) {
         
         if state[(sender as AnyObject).tag - 1] == 0 && gameActive == true {
@@ -40,32 +52,23 @@ class ViewController: UIViewController {
                 if state[condition[0]] == 1{
                     winnerLabel.text = "マルの勝ち"
                     
-                } else {
+                } else if state[condition[0]] == 2 {
                     winnerLabel.text = "バツの勝ち"
+                } else {
+                    winnerLabel.text = "引き分け"
                 }
                 winnerLabel.isHidden = false
                 restart.isHidden = false
-                
             }
         }
     }
     
-    @IBOutlet weak var winnerLabel: UILabel!
-    @IBOutlet weak var restart: UIButton!
-    @IBAction func restartButton(_ sender: Any) {
-        state = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        gameActive = true
-        activePlayer = 1
-        winnerLabel.isHidden = true
-        restart.isHidden = true
-        
-        for i in 1...9{
-            let button = view.viewWithTag(i) as! UIButton
-            button.setImage(nil, for: UIControlState())
-        }
-        
-        
+    func aiturn() {
     }
+    
+    
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
